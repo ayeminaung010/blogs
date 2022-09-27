@@ -1,0 +1,84 @@
+                    {{-- new added --}}
+                    <div class="text-group mb-1">
+                        <label for="">Post Image</label>
+                        <input type="file" name="updateImage" id="" class="form-control @error('updateImage') is-invalid @enderror"  value="{{ old('updateImage')}}">
+                        @error('updateImage')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="text-group mb-3">
+                            <label for="">Location</label>
+                            <select class="form-select " id="validationCustom04" name="updateLocation" >
+                                <option selected disabled >{{ $post['address'],old('updateLocation')}}</option>
+                                <option value="yangon">yangon</option>
+                                <option value="mandalay">mandalay</option>
+                                <option value="pyay">pyay</option>
+                                <option value="bago">bago</option>
+                                <option value="pyin oo lwin">pyin oo lwin</option>
+                                <option value="taung gyi">taung gyi</option>
+                                <option value="inn lay">inn lay</option>
+                                <option value="mawlamyine">mawlamyine</option>
+                            </select>
+                        @error('updateLocation')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="text-group mb-3">
+                        <label for="">Price</label>
+                        <input type="text" name="updatePrice" id="" class="form-control @error('updatePrice') is-invalid @enderror" placeholder="Enter price" value="{{ $post['price'],old('updatePrice')}}">
+                        @error('updatePrice')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+
+                    </div>
+
+                    <div class="text-group mb-3">
+                        <label for="">Rating</label>
+                        <input type="text" name="updateRating" id="" class="form-control @error('updateRating') is-invalid @enderror" placeholder="Enter Rating eg-1,2,3,4,5..." value="{{ $post['rating'],old('updateRating')}}">
+                        @error('updateRating')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    {{-- new added end --}}
+
+
+ @error('postTitle') is-invalid @enderror" name="postTitle" placeholder="Enter post title.." value="{{ $post['title'],old('postTitle') }}
+@error('postDescription') is-invalid @enderror
+@error('postTitle')
+    <div class="invalid-feedback">{{ $message }}</div>
+@enderror
+
+@error('postDescription')
+    <div class="invalid-feedback">{{ $message }}</div>
+@enderror
+
+{{ $post['description'],old('postDescription') }}
+
+
+<form action="{{ route('post#update) }}"  method="POST">
+    @csrf
+
+    <label for="title">Post title(ခေါင်းစဉ်)</label>
+
+
+    <div class="my-2">
+            <input type="text" class="form-control " >
+
+    </div>
+
+    <div class="my-2">
+        <label for="description">Post Description(စာပိုဒ်)</label>
+        <textarea name="postDescription" id="" cols="30" rows="10" class="form-control  " placeholder="Enter post description" > </textarea>
+
+    </div>
+
+
+
+
+
+    <input type="submit" value="Update" class="btn btn-success float-end">
+
+</form>
+diffForHumans()
